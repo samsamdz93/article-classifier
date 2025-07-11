@@ -3,7 +3,7 @@ import json
 import os
 
 def dict_to_article(d):
-	return Article(d['Title'], d['Link'], d['Authors'], d['Abstract'], d['Numpages'])
+	return Article(d['Title'], d['Link'], d['Authors'], d['Abstract'], d['Numpages'], d['Year'])
 
 def extract_articles_from(list_of_files):
 	ret = []
@@ -19,7 +19,7 @@ def extract_articles_from(list_of_files):
 def extract_articles(file):
 	with open(file, 'r') as f:
 		articles = f.read().split('\n\n')
-	while ARTICLES[-1].strip() == '':
+	while articles[-1].strip() == '':
 		articles.pop()
 	return articles
 

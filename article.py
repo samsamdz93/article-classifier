@@ -1,10 +1,11 @@
 class Article:
-	def __init__(self, title, link, authors, abstract, numpages):
+	def __init__(self, title, link, authors, abstract, numpages, year = '0'):
 		self.title = title
 		self.link = link
 		self.authors = authors
 		self.abstract = abstract
 		self.numpages = numpages
+		self.year = year
 
 	def __repr__(self):
 		res = ''
@@ -12,6 +13,7 @@ class Article:
 		res += 'Title : ' + self.title + '\n' 
 		res += 'Authors : ' + str(self.authors) + '\n'
 		res += 'Link : ' + self.link + '\n'
+		res += 'Year : ' +  self.year + '\n'
 		res += 'Num-pages : ' +  self.numpages + '\n'
 		res += 'Abstract :\n' +  self.abstract + '\n'
 		res += '=========================\n'
@@ -24,6 +26,7 @@ class Article:
 		d = {'Title' : self.title,
 			'Authors' : self.authors,
 			'Link' : self.link,
+			'Year' : self.year,
 			'Numpages' : self.numpages,
 			'Abstract' : self.abstract}
 		return d

@@ -57,7 +57,13 @@ def bib_to_json(bib_addr, prefix, save_dir):
 		else:
 			numpages = article.fields_dict['numpages'].value
 
-		ARTICLES_FOUND.append(Article(title, url, authors, abstract, numpages))
+		# Getting the publication year
+		if not 'year' in fields_keys:
+			year = '0'
+		else:
+			year = article.fields_dict['year'].value
+
+		ARTICLES_FOUND.append(Article(title, url, authors, abstract, numpages, year))
 
 	# Storing every article in a json file
 	with open(save_addr, 'w') as f:

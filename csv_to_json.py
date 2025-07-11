@@ -34,7 +34,14 @@ def csv_to_json(csv_addr, prefix, save_dir):
 			numpages = str(int(end) - int(start) + 1)
 		except:
 			numpages = '0'
-		ARTICLES_FOUND.append(Article(title, link, authors, abstract, numpages))
+
+		# Getting the publication year
+		try:
+			year = str(int(article['Publication Year']))
+		except:
+			year = '0'
+		
+		ARTICLES_FOUND.append(Article(title, link, authors, abstract, numpages, year))
 
 	print('Number of articles found :', cpt, sep = '\t')
 
